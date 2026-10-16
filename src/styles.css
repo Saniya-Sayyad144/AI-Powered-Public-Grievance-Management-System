@@ -1,0 +1,160 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 3px);
+  --radius-md: calc(var(--radius) - 1px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-panel: var(--panel);
+  --color-panel-subtle: var(--panel-subtle);
+  --color-nav: var(--nav);
+  --color-nav-foreground: var(--nav-foreground);
+  --color-nav-muted: var(--nav-muted);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-coral: var(--coral);
+  --color-status-todo: var(--status-todo);
+  --color-status-progress: var(--status-progress);
+  --color-status-review: var(--status-review);
+  --color-status-done: var(--status-done);
+  --color-priority-low: var(--priority-low);
+  --color-priority-medium: var(--priority-medium);
+  --color-priority-high: var(--priority-high);
+  --color-priority-critical: var(--priority-critical);
+}
+
+:root {
+  --radius: 0.55rem;
+  --background: oklch(0.975 0.008 240);
+  --foreground: oklch(0.205 0.035 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.205 0.035 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.205 0.035 250);
+  --primary: oklch(0.55 0.14 215);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.945 0.012 242);
+  --secondary-foreground: oklch(0.3 0.04 250);
+  --muted: oklch(0.95 0.01 242);
+  --muted-foreground: oklch(0.52 0.03 245);
+  --accent: oklch(0.93 0.028 210);
+  --accent-foreground: oklch(0.31 0.07 218);
+  --destructive: oklch(0.61 0.21 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.895 0.018 240);
+  --input: oklch(0.895 0.018 240);
+  --ring: oklch(0.55 0.14 215);
+  --panel: oklch(1 0 0);
+  --panel-subtle: oklch(0.965 0.01 240);
+  --nav: oklch(0.34 0.085 248);
+  --nav-foreground: oklch(0.98 0.005 230);
+  --nav-muted: oklch(0.79 0.025 235);
+  --brand: oklch(0.55 0.105 204);
+  --brand-soft: oklch(0.93 0.035 203);
+  --coral: oklch(0.69 0.17 28);
+  --status-todo: oklch(0.56 0.03 245);
+  --status-progress: oklch(0.61 0.15 235);
+  --status-review: oklch(0.61 0.16 305);
+  --status-done: oklch(0.58 0.14 155);
+  --priority-low: oklch(0.56 0.03 245);
+  --priority-medium: oklch(0.72 0.15 80);
+  --priority-high: oklch(0.67 0.18 48);
+  --priority-critical: oklch(0.61 0.21 25);
+}
+.dark {
+  --background: oklch(0.16 0.028 252);
+  --foreground: oklch(0.95 0.01 235);
+  --card: oklch(0.205 0.032 252);
+  --card-foreground: oklch(0.95 0.01 235);
+  --popover: oklch(0.22 0.035 252);
+  --popover-foreground: oklch(0.95 0.01 235);
+  --secondary: oklch(0.25 0.032 250);
+  --secondary-foreground: oklch(0.93 0.01 235);
+  --muted: oklch(0.25 0.028 250);
+  --muted-foreground: oklch(0.7 0.025 240);
+  --accent: oklch(0.27 0.05 220);
+  --accent-foreground: oklch(0.88 0.05 205);
+  --border: oklch(0.32 0.03 248);
+  --input: oklch(0.32 0.03 248);
+  --panel: oklch(0.205 0.032 252);
+  --panel-subtle: oklch(0.235 0.03 250);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ping-soft {
+  70%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+@utility panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow:
+    0 1px 2px color-mix(in oklab, var(--foreground) 5%, transparent),
+    0 8px 24px color-mix(in oklab, var(--foreground) 4%, transparent);
+}
+@utility animate-rise {
+  animation: rise 0.45s cubic-bezier(0.22, 0.8, 0.32, 1) both;
+}
+@utility live-ping {
+  animation: ping-soft 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
